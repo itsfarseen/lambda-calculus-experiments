@@ -2,6 +2,12 @@ module Main where
 
 import LC
 
+-- Note: SExpr parser
+-- (foo bar) -> App foo bar
+-- (\\. x body) -> Lam x body
+-- foo, (foo), ((foo)) -> Var foo
+-- 1234 -> LCInt 1234
+
 main :: IO ()
 main = do
   let l1 = "((\\. x (\\. y x)) 100)" -- >> `const 100`
